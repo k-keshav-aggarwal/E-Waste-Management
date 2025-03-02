@@ -1,0 +1,143 @@
+/* General styles */
+footer {
+  display: flex;
+  width: 100%;
+  padding: 40px 60px;
+  justify-content: space-around;
+  color: #e2e2e2;
+  background-color: #1b1b1b;
+  font-family: "Montserrat", sans-serif;
+  border-top: #727272 solid 0.3px;
+}
+
+/* Footer logo and social links */
+.footer-logo h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #4caf50;
+}
+
+.footer-logo p {
+  margin-bottom: 20px;
+  color: #a1a1a1;
+}
+
+.footer-logo .social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-logo .social-links a {
+  color: #a1a1a1;
+  font-size: 25px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-logo .social-links a:hover {
+  transform: translateY(-5px);
+}
+
+.social-links a.facebook:hover {
+  color: #368cfc;
+}
+
+.social-links a.linkedIn:hover {
+  color: #0077b5;
+}
+
+.social-links a.instagram:hover {
+  color: #e4405f;
+}
+
+/* Footer headings */
+footer h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #4caf50;
+}
+
+/* Footer navigation links */
+.footer-nav-links .nav-links-2 ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-nav-links .nav-links-2 ul li {
+  padding-bottom: 15px;
+}
+
+.footer-nav-links .nav-links-2 a {
+  text-decoration: none;
+  color: #a1a1a1;
+  transition: color 0.3s ease;
+}
+
+.footer-nav-links .nav-links-2 a:hover {
+  color: #4caf50;
+}
+
+/* Footer contact details */
+.footer-contact-details {
+  color: #e2e2e2;
+}
+
+.footer-contact-details .footer-logo {
+  font-size: 18px;
+  margin-right: 10px;
+  color: #4caf50;
+}
+
+.phone-1,
+.email-1,
+.address-1 {
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+  color: #a1a1a1;
+}
+
+/* Working hours */
+.working-hours {
+  color: #e2e2e2;
+}
+
+.working-hours .footer-logo {
+  font-size: 18px;
+  margin-right: 10px;
+  color: #4caf50;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  footer {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .footer-logo,
+  .footer-nav-links,
+  .footer-contact-details,
+  .working-hours {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-nav-links .nav-links-2 ul {
+    padding: 0;
+  }
+
+  .footer-contact-details .phone-1,
+  .footer-contact-details .email-1,
+  .footer-contact-details .address-1 {
+    justify-content: center;
+  }
+}
