@@ -1,9 +1,9 @@
-import collectionCenterRouter from "./collectionCenter.js"
-import recyclingCenterRouter from "./recyclingCenter.js"
-import shopRouter from "./shop.js"
+const collectionCenterRouter = require("./collectionCenter.js");
+const recyclingCenterRouter = require("./recyclingCenter.js");
+const shopRouter = require("./shop.js");
 
-export {
+module.exports = {
     collectionCenterRouter,
     recyclingCenterRouter,
     shopRouter
-}
+};
