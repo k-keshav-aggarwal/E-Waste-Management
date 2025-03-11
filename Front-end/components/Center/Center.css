@@ -1,0 +1,214 @@
+#root {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.center-top-section {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    background-color: rgba(27, 27, 27);
+    box-shadow: 0 1px 4px rgba(255, 255, 255, 0.3);
+    z-index: 100;
+}
+
+/* home button */
+.back-to-profile-btn {
+    background: none;
+    border: none;
+    color: rgb(76, 175, 80);
+    font-size: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-to-profile-btn:hover {
+    transform: scale(1.05);
+}
+
+/* search-box */
+.center-search-box {
+    min-width: 200px;
+    width: 30%;
+    color: white;
+    border: none;
+    background-color: rgb(47, 47, 47);
+    padding: 10px 20px;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+    transition: all 0.3 ease;
+}
+
+.center-search-box::placeholder {
+    font-size: 16px;
+    color: rgb(179, 178, 178);
+}
+
+.center-search-box:focus,
+.center-search-box:hover {
+    border: 1px solid gray;
+}
+
+/* add center btn */
+.add-center-btn {
+    font-weight: bold;
+    background-color: rgb(76, 175, 80);
+    height: 32px;
+    width: 32px;
+    font-size: 25px;
+    color: white;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all 0.3 ease;
+}
+
+.add-center-btn:hover {
+    transform: scale(1.05);
+}
+
+.list-heading-01 {
+    color: rgb(76, 175, 80);
+    margin-top: 150px;
+}
+
+/* form styles */
+.center-create-form {
+    background-color: rgba(47, 47, 47, 0.493);
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.center-create-form input {
+    min-width: 200px;
+    color: white;
+    border: none;
+    background-color: rgb(47, 47, 47);
+    padding: 10px 20px;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+    transition: all 0.3 ease;
+    border: 1px solid rgba(255, 255, 255, 0.274);
+}
+
+.center-create-form input::placeholder {
+    font-size: 16px;
+    color: rgb(179, 178, 178);
+    text-align: center;
+}
+
+.create-center-btn {
+    background-color: rgb(76, 175, 80);
+    color: white;
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+/* centers styles */
+
+.center-list {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    background-color: rgba(47, 47, 47, 0.493);
+    width: 40%;
+    box-shadow: 1px 1px 4px rgba(255, 255, 255, 0.3), 1px 1px 4px rgba(255, 255, 255, 0.3) inset;
+    padding: 30px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.center-details-container {
+    position: relative;
+    border-bottom: 1px solid white;
+    padding: 30px 0;
+}
+
+.center-details-container:nth-child(1) {
+    padding-top: 0;
+}
+
+.center-details-container:last-child {
+    border: none;
+}
+
+.center-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* delete btn */
+.delete-center {
+    font-weight: bold;
+    position: absolute;
+    font-size: 18px;
+    height: 30px;
+    width: 30px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background-color: rgb(233, 74, 74);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.delete-center:hover {
+    transform: translateY(-50%) scale(1.05);
+}
+
+@media (max-width: 1500px) {
+    .center-list {
+        width: 60%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .center-top-section {
+        gap: 30px;
+    }
+
+    .center-list {
+        width: 80%;
+    }
+}
+
+@media (max-width: 700px) {
+    .center-top-section {
+        gap: 20px;
+    }
+
+    .delete-center {
+        display: none;
+    }
+
+    .center-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 450px) {
+    .center-top-section {
+        gap: 10px;
+    }
+}
