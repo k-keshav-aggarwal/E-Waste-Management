@@ -1,6 +1,7 @@
-import pkg from "pg"
+const pkg = require("pg") 
 const { Pool } = pkg
 
+//change the object to match the server details
 const pool = new Pool({
     host: "localhost",
     user: "postgres",
@@ -9,4 +10,4 @@ const pool = new Pool({
     database: "rebootearth"
 })
 
-export { pool }
+module.exports =  { pool }
