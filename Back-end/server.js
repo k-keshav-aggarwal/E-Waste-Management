@@ -57,6 +57,26 @@ app.post('/chat-bot', async (req, res) => {
   }
 });
 
+//router and connection pool import
+const { pool } = require("./db/connection.js");
+const { collectionCenterRouter, recyclingCenterRouter, shopRouter } = require("./routes/index.js");
+
+// Routes
+app.use("/collection_centers", collectionCenterRouter);
+app.use("/recycling_centers", recyclingCenterRouter);
+app.use("/shop", shopRouter);
+
+// Handle both SIGINT (Ctrl + C) and SIGTERM (server shutdown)
+const closeConnection = async () => {
+    console.log("Closing PostgreSQL connection...");
+    await pool.end();
+    console.log("PostgreSQL connection closed.");
+    process.exit(0);
+};
+
+process.on("SIGINT", closeConnection);
+process.on("SIGTERM", closeConnection);
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
