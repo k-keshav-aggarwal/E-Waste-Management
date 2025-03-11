@@ -77,6 +77,10 @@ const closeConnection = async () => {
 process.on("SIGINT", closeConnection);
 process.on("SIGTERM", closeConnection);
 
+//error handling
+import { errorHandler } from "./utils/errorHandler.js"
+app.use(errorHandler)
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
