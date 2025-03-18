@@ -19,9 +19,14 @@ const authRoutes = require("./routes/auth");
 const profileRoutes = require("./routes/profile");
 const supabaseTestRoutes = require("./routes/supabaseTest");
 const collectionCentre = require("./routes/collectionCentre");
-const e_wasteItems = require("./routes/e-wasteItems")
-const users = require("./routes/users")
-const shop = require("./routes/shopRoutes")
+const e_wasteItems = require("./routes/e-wasteItems");
+const users = require("./routes/users");
+const shop = require("./routes/shopRoutes");
+
+//admin routes
+const adminCollectionCenter  = require("./routes/admin/collectionCenter");
+const adminRecyclingFacility  = require("./routes/admin/recyclingFacility");
+const adminShop = require("./routes/admin/shop");
 
 // Mount routes
 app.use("/chat-bot", chatBotRoutes);
@@ -32,6 +37,9 @@ app.use("/collectionCentre", collectionCentre);
 app.use("/ewaste-items", e_wasteItems);
 app.use("/users", users);
 app.use("/shop", shop);
+app.use("/admin/collectionCenter", adminCollectionCenter);
+app.use("/admin/recyclingFacility", adminRecyclingFacility);
+app.use("/admin/shop", adminShop);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
