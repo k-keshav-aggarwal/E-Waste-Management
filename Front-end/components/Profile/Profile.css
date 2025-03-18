@@ -17,8 +17,7 @@ body {
   align-items: center;
   min-height: 100vh;
   padding: 20px;
-  background: url("https://images.unsplash.com/photo-1592152045578-7aa07f0d1bcd?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-    no-repeat center center/cover;
+  background: url("https://images.unsplash.com/photo-1592152045578-7aa07f0d1bcd?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center/cover;
 }
 
 .profile_container_2090 {
@@ -37,6 +36,7 @@ body {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -196,6 +196,29 @@ body {
   box-shadow: none;
 }
 
+
+/* admin links styles (recyling facility, collection center, shop) */
+.admin_route_links_01 {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+.admin_route_links_01 button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #4caf50;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 16px;
+}
+
+.admin_route_links_01 button .link {
+  text-decoration: none;
+  color: white;
+}
+
 /* Responsive Design for Profile */
 @media (max-width: 768px) {
   .profile_content_2090 {
@@ -222,18 +245,21 @@ body {
     font-size: 14px;
   }
 }
+
 .loading_spinner_profile {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Occupies the full viewport height */
+  height: 100vh;
+  /* Occupies the full viewport height */
 }
 
 .spinner_profile {
   animation: spin 1s linear infinite;
   font-size: 2rem;
-  color: #4caf50; /* Theme color */
+  color: #4caf50;
+  /* Theme color */
   margin-bottom: 1rem;
 }
 
@@ -241,6 +267,7 @@ body {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
