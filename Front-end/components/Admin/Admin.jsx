@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom"
 import { FaSpinner } from "react-icons/fa";
 import "../Profile/Profile.css";
 
@@ -193,6 +194,11 @@ const Admin = () => {
               Save Changes
             </button>
           </div>
+        </div>
+        <div className="admin_route_links_01">
+          <button><NavLink className="link" to="/admin/collectionCenter">collection center</NavLink></button>
+          <button><NavLink className="link" to="/admin/recyclingFacility">recycling facility</NavLink></button>
+          <button><NavLink className="link" to="/admin/shop">add items to shop</NavLink></button>
         </div>
       </div>
     </div>
