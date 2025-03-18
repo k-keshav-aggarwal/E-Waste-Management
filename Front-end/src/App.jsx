@@ -7,6 +7,8 @@ import E_Shop from '../components/E_Shop/E_shop';
 import Profile from '../components/Profile/Profile';
 import CentresList from '../components/Profile/CentresList';
 import Admin from '../components/Admin/Admin';
+import AdminCenter from "../components/Admin/Center.jsx"
+import AdminShop from "../components/Admin/E_Shop.jsx"
 import './App.css';
 
 function App() {
@@ -64,6 +66,9 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/collectionCenter" element={<AdminCenter list="1" heading="Collection Centers" url="http://localhost:3000/admin/collectionCenter"/>}/>
+        <Route path="/admin/recyclingFacility" element={<AdminCenter list="2" heading="Recycling Facilities" url="http://localhost:3000/admin/recyclingFacility"/>}/>
+        <Route path="/admin/shop" element={<AdminShop/>}/>
         <Route path="/centresList" element={<CentresList />} />
         <Route path="/e-shop" element={<E_Shop />} />
       </Routes>
