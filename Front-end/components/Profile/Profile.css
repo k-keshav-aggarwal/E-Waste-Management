@@ -1,0 +1,274 @@
+/* Profile.css */
+
+/* General Styles */
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1b1b1b, #2a2a2a);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.profile_page_2090 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: url("https://images.unsplash.com/photo-1592152045578-7aa07f0d1bcd?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center/cover;
+}
+
+.profile_container_2090 {
+  max-width: 1200px;
+  width: 100%;
+  padding: 40px;
+  background-color: rgba(43, 43, 43, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  animation: fadeIn_2090 0.8s ease-in-out;
+}
+
+@keyframes fadeIn_2090 {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile_heading_2090 {
+  text-align: center;
+  color: #4caf50;
+  margin-bottom: 30px;
+  font-size: 36px;
+  font-weight: 700;
+  text-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+}
+
+.profile_content_2090 {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Profile Photo Section */
+.profile_photo_section_2090 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile_photo_2090 {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 4px solid #4caf50;
+}
+
+.profile_photo_2090:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
+}
+
+.profile_image_2090 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile_placeholder_2090 {
+  font-size: 18px;
+  color: #a1a1a1;
+  text-align: center;
+}
+
+.photo_upload_input_2090 {
+  display: none;
+}
+
+.photo_upload_label_2090 {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.photo_upload_label_2090:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+/* Profile Details Section */
+.profile_details_2090 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile_field_2090 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile_field_2090 label {
+  font-size: 16px;
+  color: #a1a1a1;
+  font-weight: 500;
+}
+
+.profile_field_2090 input,
+.profile_field_2090 textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #444;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile_field_2090 input:focus,
+.profile_field_2090 textarea:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+  outline: none;
+}
+
+.profile_field_2090 textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Save Changes Button (if used in Profile pages) */
+.submit_button_2090 {
+  background-color: #e91e63;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: auto;
+  display: block;
+  width: fit-content;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(233, 30, 99, 0.3);
+}
+
+.submit_button_2090:hover {
+  background-color: #c2185b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(233, 30, 99, 0.4);
+}
+
+.submit_button_2090:active {
+  transform: translateY(0);
+}
+
+.submit_button_2090:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* admin links styles (recyling facility, collection center, shop) */
+.admin_route_links_01 {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+.admin_route_links_01 button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #4caf50;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 16px;
+}
+
+.admin_route_links_01 button .link {
+  text-decoration: none;
+  color: white;
+}
+
+/* Responsive Design for Profile */
+@media (max-width: 768px) {
+  .profile_content_2090 {
+    grid-template-columns: 1fr;
+  }
+
+  .profile_photo_2090 {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile_container_2090 {
+    padding: 20px;
+  }
+
+  .profile_heading_2090 {
+    font-size: 28px;
+  }
+
+  .profile_field_2090 input,
+  .profile_field_2090 textarea {
+    font-size: 14px;
+  }
+}
+
+.loading_spinner_profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  /* Occupies the full viewport height */
+}
+
+.spinner_profile {
+  animation: spin 1s linear infinite;
+  font-size: 2rem;
+  color: #4caf50;
+  /* Theme color */
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
