@@ -81,4 +81,57 @@ app.get('/profile', (req, res) => {
 
 ---
 
-Want to try building a session-based login in Express just for fun?
+
+
+### **How JWT verification works (in simple steps):**
+
+Let’s say:
+
+- After login, the server creates a JWT like this:
+```js
+const token = jwt.sign({ userId: 123 }, "mySecretKey", { expiresIn: '1h' });
+```
+
+The token looks like:
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+```
+
+This is sent to the client (stored in localStorage or as a cookie).
+
+---
+
+### **On every request:**
+Frontend sends the token like this:
+```js
+axios.get('/profile', {
+  headers: { Authorization: `Bearer ${token}` }
+});
+```
+
+---
+
+### **On the backend:**
+Server checks the token like this:
+```js
+const decoded = jwt.verify(token, "mySecretKey");
+```
+
+- This checks if:
+  - The token is **not changed**
+  - It is **not expired**
+  - It was created with the same **secret key**
+- If valid → access is granted
+
+---
+
+### **Why server doesn’t need to store JWT:**
+Because the token **itself contains the info** and is **digitally signed**.  
+It’s like a **sealed envelope** — the server just opens and checks it hasn’t been tampered with.
+
+---
+
+### **Bonus Visual:**
+JWT is like:
+- A **passport** (has all your info inside)
+- Server is **immigration** — just scans it for **validity**, not stored anywhere
