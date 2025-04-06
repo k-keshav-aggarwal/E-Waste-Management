@@ -135,3 +135,108 @@ It’s like a **sealed envelope** — the server just opens and checks it hasn�
 JWT is like:
 - A **passport** (has all your info inside)
 - Server is **immigration** — just scans it for **validity**, not stored anywhere
+
+---
+
+
+### **Why do browsers have CORS restrictions?**
+
+CORS exists to **protect you**, the user, from **malicious websites**.
+
+Let’s break it down simply:
+
+---
+
+### **Imagine This:**
+
+You’re logged into your **bank’s website** in one tab (say, `https://mybank.com`).  
+Now, you visit a **random website** (`https://evil-site.com`) in another tab.
+
+That **evil site** has JavaScript like this:
+
+```js
+fetch("https://mybank.com/api/transfer", {
+  method: "POST",
+  body: JSON.stringify({ to: "attacker", amount: 10000 }),
+  credentials: "include"
+});
+```
+
+If browsers didn’t have CORS rules, this request would **go through** — with your **cookies** — and money would be transferred!
+
+---
+
+### **So What Does CORS Do?**
+CORS **blocks** such requests **by default** if the origin (domain) is different.
+
+- Only if the **server explicitly allows it** (with headers like `Access-Control-Allow-Origin`), the browser lets it through.
+
+---
+
+### **In short:**
+CORS is like a **guard** that says:
+
+> “Hey, you’re trying to access a resource from another domain?  
+> I’ll only allow it if that domain explicitly says it's safe.”
+
+---
+
+That’s why **you usually only need to deal with CORS on the backend** — to tell browsers it’s safe to talk to your frontend (React).
+
+
+---
+
+### **What does the CORS library do in Express?**
+
+The `cors` package in Node/Express:
+- Adds specific **headers** to responses like:
+  ```
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, POST, etc.
+  ```
+- This tells the browser:  
+  _"Hey, it's okay for requests to come from other origins."_
+
+---
+
+### **Using CORS in Express (normal way):**
+```js
+const express = require('express');
+const cors = require('cors');
+const app = express();
+
+app.use(cors()); // <-- this is it
+```
+
+This line adds the needed headers **to every response**.
+
+---
+
+### **How CORS works under the hood (simplified version):**
+
+Here’s what the CORS middleware actually does behind the scenes:
+```js
+function corsMiddleware(req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  
+  // For preflight requests (OPTIONS)
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204); // No Content
+  }
+
+  next(); // move to the next middleware or route
+}
+```
+
+So when you `app.use(cors())`, it's basically plugging in this kind of function into Express.
+
+---
+
+### Summary:
+- **CORS** is a browser-level restriction
+- **The `cors` package** just adds the correct headers
+- You can write your **own mini-cors middleware** like above!
+
+---
