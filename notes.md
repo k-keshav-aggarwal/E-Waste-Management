@@ -83,7 +83,7 @@ app.get('/profile', (req, res) => {
 
 
 
-### **How JWT verification works (in simple steps):**
+## **How JWT verification works (in simple steps):**
 
 Let’s say:
 
@@ -139,7 +139,7 @@ JWT is like:
 ---
 
 
-### **Why do browsers have CORS restrictions?**
+## **Why do browsers have CORS restrictions?**
 
 CORS exists to **protect you**, the user, from **malicious websites**.
 
@@ -186,7 +186,7 @@ That’s why **you usually only need to deal with CORS on the backend** — to t
 
 ---
 
-### **What does the CORS library do in Express?**
+## **What does the CORS library do in Express?**
 
 The `cors` package in Node/Express:
 - Adds specific **headers** to responses like:
