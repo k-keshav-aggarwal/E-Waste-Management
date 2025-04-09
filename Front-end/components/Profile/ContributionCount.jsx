@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import CountUp from 'react-countup';
 import { FaRecycle, FaBoxOpen } from 'react-icons/fa';
 import { FaSpinner } from "react-icons/fa";
 import axios from 'axios';
@@ -19,7 +18,6 @@ const ContributionCount = () => {
                 const response = await axios.get(`${BASE_URL}/ewaste-items/aggregate`, {
                     params: { email }
                 });
-                console.log('Fetched count:', response.data.count); // Enhanced logging
                 setCount(response.data.count);
             } catch (error) {
                 console.error('Error fetching contribution count:', error);
@@ -50,20 +48,9 @@ const ContributionCount = () => {
                     <FaBoxOpen className="secondary-icon_2090" />
                 </div>
                 <div className="contribution-content_2090">
-                    <CountUp
-                        key={count} // Force re-render when count changes
-                        start={0}
-                        end={count}
-                        duration={2.5}
-                        separator=","
-                        className="contribution-number_2090"
-                    >
-                        {({ countUpRef }) => (
-                            <div>
-                                <span ref={countUpRef} className="count-text_2090" />
-                            </div>
-                        )}
-                    </CountUp>
+                    <span className="count-text_2090">
+                        {count.toLocaleString()}
+                    </span>
                     <p className="contribution-label_2090">Items Contributed</p>
                 </div>
             </div>
