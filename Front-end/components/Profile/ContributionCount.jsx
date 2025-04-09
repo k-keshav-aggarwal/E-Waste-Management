@@ -19,7 +19,7 @@ const ContributionCount = () => {
                 const response = await axios.get(`${BASE_URL}/ewaste-items/aggregate`, {
                     params: { email }
                 });
-                
+                console.log(response.data.count);
                 setCount(response.data.count || 0);
             } catch (error) {
                 console.error('Error fetching contribution count:', error);
