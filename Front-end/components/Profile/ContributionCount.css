@@ -1,0 +1,139 @@
+/* Contribution Count Section */
+.contribution-container_2090 {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+    padding: 0 20px;
+}
+
+.contribution-card_2090 {
+    background: linear-gradient(135deg, #2E7D32, #4CAF50);
+    border-radius: 12px;
+    padding: 30px;
+    color: white;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+    position: relative;
+    overflow: hidden;
+    max-width: 450px;
+    width: 100%;
+    gap: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contribution-icon_2090 {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.main-icon_2090 {
+    font-size: 3rem;
+    color: white;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.secondary-icon_2090 {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    font-size: 1.5rem;
+    background: #333;
+    color: #4CAF50;
+    padding: 8px;
+    border-radius: 50%;
+    border: 2px solid #4CAF50;
+}
+
+.contribution-content_2090 {
+    flex: 1;
+    text-align: center;
+}
+
+.count-text_2090 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    letter-spacing: 0.5px;
+}
+
+.contribution-label_2090 {
+    margin: 10px 0 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Loading State */
+.contribution-card_2090.loading_2090 {
+    background: #333;
+    color: #a1a1a1;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 30px;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+}
+
+.spinner_2090 {
+    animation: spin_2090 1s linear infinite;
+    font-size: 2rem;
+    color: #4CAF50;
+}
+
+@keyframes spin_2090 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Animation for card entrance */
+@keyframes cardEntrance_2090 {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.contribution-card_2090 {
+    animation: cardEntrance_2090 0.6s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .contribution-card_2090 {
+        flex-direction: column;
+        gap: 20px;
+        padding: 25px;
+    }
+    
+    .contribution-icon_2090 {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .main-icon_2090 {
+        font-size: 2.5rem;
+    }
+    
+    .count-text_2090 {
+        font-size: 2rem;
+    }
+    
+    .contribution-label_2090 {
+        font-size: 1rem;
+    }
+}

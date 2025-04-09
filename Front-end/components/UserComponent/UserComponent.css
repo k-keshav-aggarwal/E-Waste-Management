@@ -1,0 +1,138 @@
+.user-dashboard {
+  position: relative;
+  background: #1b1b1b;
+  padding: 3rem 3rem;
+  overflow: hidden;
+}
+
+.background-dots {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dot {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #2e8b57;
+  border-radius: 50%;
+  animation: dotFlow 15s infinite linear;
+  opacity: 0.4;
+}
+
+@keyframes dotFlow {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-150vh) translateX(20vw);
+    opacity: 0;
+  }
+}
+
+.eco-message {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #e0e0e0;
+  position: relative;
+  z-index: 1;
+}
+
+.eco-message h2 {
+  font-size: 2rem;
+  margin: 1rem 0 0.8rem;
+  color: #2e8b57;
+  font-weight: 600;
+}
+
+.eco-message p {
+  font-size: 1.1rem;
+  color: #8d8d8d;
+  margin: 0;
+}
+
+.navigation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-card {
+  position: relative;
+  background: #373937;
+  border-radius: 12px;
+  padding: 2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid #2e8b5722;
+  margin-bottom: 0;
+}
+
+.nav-card:hover {
+  transform: translateY(-5px);
+  border-color: #2e8b5755;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+  color: #e0e0e0;
+  text-align: center;
+}
+
+.nav-icon {
+  width: 40px;
+  height: 40px;
+  color: #2e8b57;
+  margin-bottom: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.nav-card:hover .nav-icon {
+  color: #3cb371;
+  transform: scale(1.1);
+}
+
+.nav-card h3 {
+  font-size: 1.4rem;
+  margin: 0 0 0.8rem;
+  color: #f0f0f0;
+}
+
+.nav-card p {
+  color: #8d8d8d;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .user-dashboard {
+    padding: 2rem 1.5rem;
+  }
+
+  .navigation-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .eco-message h2 {
+    font-size: 1.6rem;
+  }
+
+  .nav-card {
+    padding: 1.8rem;
+  }
+}
