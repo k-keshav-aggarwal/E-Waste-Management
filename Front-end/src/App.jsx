@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Hero, AboutUs, ContactUs, Footer, Impact, Navbar, Chatbot } from '../components/imports';
 import Login from '../components/Authorization_Authentication/Login';
 import Signup from '../components/Authorization_Authentication/Signup';
-import E_Shop from '../components/E_Shop/E_shop';
+import E_Shop from '../components/E_Shop/E_Shop';
 import Profile from '../components/Profile/Profile';
 import CentresList from '../components/Profile/CentresList';
 import Admin from '../components/Admin/Admin';
