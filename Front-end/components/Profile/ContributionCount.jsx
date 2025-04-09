@@ -19,7 +19,7 @@ const ContributionCount = () => {
                 const response = await axios.get(`${BASE_URL}/ewaste-items/aggregate`, {
                     params: { email }
                 });
-                console.log(response.data.count);
+                console.log('Fetched count:', response.data.count); // Enhanced logging
                 setCount(response.data.count);
             } catch (error) {
                 console.error('Error fetching contribution count:', error);
@@ -51,6 +51,7 @@ const ContributionCount = () => {
                 </div>
                 <div className="contribution-content_2090">
                     <CountUp
+                        key={count} // Force re-render when count changes
                         start={0}
                         end={count}
                         duration={2.5}
