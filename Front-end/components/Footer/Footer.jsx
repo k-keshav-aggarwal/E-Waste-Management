@@ -44,7 +44,7 @@ const Footer = () => {
         <nav className="nav_links_2_2100">
           <ul className="link_style_2100">
             <li>
-              <a href="#home" onClick={() => scrollToSection("home")}>
+              <a href="#home_3050" onClick={() => scrollToSection("home")}>
                 <BiHome className="footer_icon_2100" /> Home
               </a>
             </li>
@@ -71,7 +71,7 @@ const Footer = () => {
           <BiLogoGmail className="footer_logo_2100" />RebootEarth@gmail.com
         </div>
         <div className="address_1_2100">
-          <BiSolidMap className="footer_logo_2100" />#123 Fake Street, Bengaluru
+          <BiSolidMap className="footer_logo_2100" />UVCE, Bengaluru
         </div>
       </div>
 
