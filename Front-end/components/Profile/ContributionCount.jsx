@@ -20,7 +20,7 @@ const ContributionCount = () => {
                     params: { email }
                 });
                 console.log(response.data.count);
-                setCount(response.data.count || 0);
+                setCount(response.data.count);
             } catch (error) {
                 console.error('Error fetching contribution count:', error);
             } finally {
