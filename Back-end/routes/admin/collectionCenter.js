@@ -51,6 +51,9 @@ router.post("/", async (req, res) => {
         if (maxError && maxError.code !== "PGRST116") throw maxError;
         const center_id = maxData.center_id + 1;
 
+        //extracting data from front - end
+        const { center_name, phone, city, admin_id } = req.body;
+
         const { data, error } = await supabase.from("collection_centers").insert([{ center_id, center_name, phone, city, admin_id }]).select().single();
         if (error) throw error;
         res.status(201).json({ message: "Successfully created collection center", center: data });
