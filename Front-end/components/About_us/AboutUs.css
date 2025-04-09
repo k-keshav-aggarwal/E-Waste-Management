@@ -1,0 +1,175 @@
+/* General styles */
+.about-us_2060 {
+  font-family: "Montserrat", sans-serif;
+  background-color: #1b1b1b;
+  color: #fff;
+  display: flex;
+  flex-direction: column; /* Default: vertical layout for mobile */
+  align-items: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.pic_box_2060 {
+  width: 300px; /* Fixed width for mobile */
+  height: 300px; /* Fixed height for mobile */
+  background-image: url("https://images.unsplash.com/vector-1738396054607-12b35e7310f4?q=80&w=2050&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); /* Add the image URL */
+  background-size: cover; /* Ensure the image covers the box */
+  background-position: center; /* Center the image */
+  margin-bottom: 20px; /* Space between pic_box and content */
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Ensure content stays within the box */
+}
+
+.container_2060 {
+  max-width: 1200px;
+  margin: 0px 150px;
+}
+
+.content_2060 h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #4caf50; /* Green color for the subheading */
+  margin-bottom: 10px;
+  text-transform: uppercase; /* Uppercase for emphasis */
+  letter-spacing: 1px; /* Added letter spacing */
+}
+
+.content_2060 h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #fff;
+  line-height: 1.3; /* Improved line height */
+}
+
+.content_2060 p {
+  font-size: 16px;
+  color: #e2e2e2; /* Lighter text color for better readability */
+  margin-bottom: 40px;
+  line-height: 1.8; /* Increased line height for better readability */
+  font-weight: 400; /* Normal font weight */
+}
+
+.stats_2060 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.stat_2060 {
+  max-width: 150px;
+  min-width: 150px;
+  text-align: center;
+  background-color: #2a2a2a; /* Darker background for stats */
+  padding: 20px; /* Added padding */
+  border-radius: 10px; /* Rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.stat_2060:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+}
+
+.stat_2060 .number_2060 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #4caf50; /* Green color for numbers */
+  display: block;
+  margin-bottom: 10px;
+}
+
+.stat_2060 .label_2060 {
+  font-size: 16px;
+  color: #e2e2e2; /* Lighter text color for better readability */
+  font-weight: 500; /* Medium font weight */
+}
+
+.learn-more_2060 {
+  background-color: #4caf50; /* Green background */
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600; /* Bold font weight */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+.learn-more_2060:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+/* Responsive styles */
+@media (min-width: 1180px) {
+  .about-us_2060 {
+    flex-direction: row; /* Horizontal layout for laptop */
+    justify-content: space-evenly;
+    gap: 40px;
+    text-align: left;
+  }
+
+  .pic_box_2060 {
+    width: 400px; /* Fixed width for laptop */
+    height: 350px; /* Fixed height for laptop */
+    margin-bottom: 0; /* Remove margin for horizontal layout */
+    margin-left: 150px;
+    flex-shrink: 0; /* Prevent shrinking */
+    flex-grow: 0; /* Prevent growing */
+    min-width: 400px; /* Ensure width doesn't decrease */
+    max-width: 400px; /* Ensure width doesn't increase */
+  }
+
+  .content_2060 h2,
+  .content_2060 h1,
+  .content_2060 p,
+  .stats_2060,
+  .learn-more_2060 {
+    text-align: left; /* Align text to the left for laptop */
+    padding-right: 30px;
+  }
+
+  .stats_2060 {
+    flex-direction: row;
+    justify-content: space-between; /* Align stats to the left */
+    gap: 50px; /* Space between stats */
+  }
+}
+
+@media (max-width: 480px) {
+  .pic_box_2060 {
+    width: 250px; /* Smaller width for very small screens */
+    height: 250px; /* Smaller height for very small screens */
+  }
+
+  .content_2060 h1 {
+    font-size: 28px;
+    margin-right: 0;
+  }
+
+  .content_2060 p {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .learn-more_2060 {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .stats_2060 {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}
