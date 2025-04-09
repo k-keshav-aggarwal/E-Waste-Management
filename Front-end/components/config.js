@@ -1,1 +1,0 @@
-export const BASE_URL = "https://e-waste-management-org9.onrender.com";
