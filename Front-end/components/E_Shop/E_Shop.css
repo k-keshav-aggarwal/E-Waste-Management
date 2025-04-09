@@ -385,3 +385,78 @@ body {
 }
 
 /* Rest of your existing styles remain the same */
+/* Popup Notification */
+.popup-notification {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(145deg, #45a049, #4CAF50);
+  color: white;
+  padding: 18px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 600;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(2px);
+  transform-origin: bottom right;
+  font-size: 1.1em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Progress bar animation */
+.popup-notification::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  animation: progress 3s linear forwards;
+  border-radius: 0 0 12px 12px;
+}
+
+@keyframes popIn {
+  0% {
+    transform: translateX(100%) scale(0.5);
+    opacity: 0;
+  }
+  80% {
+    transform: translateX(-10%) scale(1.05);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes progress {
+  from { width: 100% }
+  to { width: 0% }
+}
+
+/* Icon styling */
+.popup-notification::before {
+  content: '🛒';
+  font-size: 1.4em;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px;
+  border-radius: 50%;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) }
+  50% { transform: translateY(-4px) }
+}
+
+/* Hover effects */
+.popup-notification:hover {
+  transform: scale(1.02) rotate(1deg);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.6);
+  transition: all 0.3s ease;
+}
