@@ -8,15 +8,15 @@ const E_Shop = () => {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
+  const [addedProductName, setAddedProductName] = useState("");
 
   useEffect(() => {
-    // Fetch product data from the backend when the component loads
     axios.get(`${BASE_URL}/shop`)
       .then(response => {
-        // Map the API response to the format expected by our component
         const formattedProducts = response.data.map(product => ({
           id: product.part_id,
-          image: 'https://via.placeholder.com/300', // Using a placeholder image, update as needed
+          image: 'https://via.placeholder.com/300',
           name: product.part_name,
           price: `$${product.price}`,
           details: product.detail
@@ -30,19 +30,35 @@ const E_Shop = () => {
       });
   }, []);
 
-  // Filter products based on search term (case-insensitive)
+  // Handle add to cart with popup
+  const handleAddToCart = (product) => {
+    setAddedProductName(product.name);
+    setShowPopup(true);
+    // Hide popup after 3 seconds
+    setTimeout(() => {
+      setShowPopup(false);
+    }, 3000);
+  };
+
   const filteredProducts = products.filter(product =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
     <div className="e-shop-container">
+      {/* Popup Notification */}
+      {showPopup && (
+        <div className="popup-notification">
+          {addedProductName} added to cart!
+        </div>
+      )}
+
+      {/* Rest of the existing code remains the same */}
       <div className="title-wrapper">
         <h1 className="e-shop-title">E-Shop</h1>
         <div className="title-underline"></div>
       </div>
 
-      {/* Search Input */}
       <div className="search-container">
         <FaSearch className="search-icon" />
         <input
@@ -75,7 +91,10 @@ const E_Shop = () => {
                 <h2 className="product-name">{product.name}</h2>
                 <p className="product-price">{product.price}</p>
                 <p className="product-details">{product.details}</p>
-                <button className="product-button">
+                <button 
+                  className="product-button"
+                  onClick={() => handleAddToCart(product)}
+                >
                   <span className="button-text">Add to Cart</span>
                   <span>🛒</span>
                 </button>
