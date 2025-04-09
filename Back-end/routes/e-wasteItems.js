@@ -165,7 +165,7 @@ router.get('/aggregate', async (req, res) => {
 
     try {
         // First get user by email
-console.log(localStorage.getItem('email'))
+console.log(email)
         const { data: userData, error: userError } = await supabase
             .from('users')
             .select('user_id')
