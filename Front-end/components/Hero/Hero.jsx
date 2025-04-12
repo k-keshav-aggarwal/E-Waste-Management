@@ -1,16 +1,28 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 import "./Hero.css";
 import sliderData from "./heroData";
+import { BASE_URL } from "../config";
 
 const Hero = () => {
   const [index, setIndex] = useState(0);
+
+  // Backend connection test
+  useEffect(() => {
+    axios.get(`${BASE_URL}/`)
+      .then((res) => {
+        console.log("backend connected to the frontend");
+      })
+      .catch((err) => {
+        console.error("backend connection failed", err);
+      });
+  }, []);
 
   // Image slider effect
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % sliderData.length);
     }, 12000);
-
     return () => clearInterval(interval);
   }, [index]);
 
@@ -20,7 +32,6 @@ const Hero = () => {
     if (bar) {
       bar.style.animation = "none";
       void bar.offsetWidth; // Trigger reflow
-      // bar.style.animation = "slideRight 15s linear";
     }
   }, [index]);
 
