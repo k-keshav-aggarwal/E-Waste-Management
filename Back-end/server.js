@@ -46,6 +46,13 @@ app.use("/admin/collectionCenter", adminCollectionCenter);
 app.use("/admin/recyclingFacility", adminRecyclingFacility);
 app.use("/admin/shop", adminShop);
 
+
+app.get("/", (req, res) => {
+  console.log("backend connected");
+  res.send("Backend is connected");
+});
+
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
