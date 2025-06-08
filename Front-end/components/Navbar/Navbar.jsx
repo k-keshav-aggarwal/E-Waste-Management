@@ -7,95 +7,82 @@ const Navbar = ({ isLoggedIn, onLogout, userRole }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handleNavbar_3050 = () => {
+  const handleNavbarToggle = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleLoginClick_3050 = () => {
+  const handleLoginClick = () => {
     navigate('/login');
   };
 
-  const handleLogoutClick_3050 = () => {
+  const handleLogoutClick = () => {
     onLogout();
     navigate('/');
   };
 
-  const handleProfileClick_3050 = () => {
+  const handleProfileClick = () => {
     navigate('/profile');
   };
 
-  const handleE_ShopClick_3050 = () => {
+  const handleE_ShopClick = () => {
     navigate('/e-shop');
   };
 
-  const handleAdminClick_3050 = () => {
+  const handleAdminClick = () => {
     navigate('/admin');
   };
 
-  const scrollToSection_3050 = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsOpen(false);
-  };
-
   return (
-    <header id="home_3050">
-      <h1>RebootEarth</h1>
-      <div className={`navbar-container_3050 ${isOpen ? 'active_3050' : ''}`}>
-        <BiX className="navbar-close-icon_3050" onClick={handleNavbar_3050} />
-        <nav className="nav-links_3050">
-          <ul className="link-style_3050">
+    <header className={`navbar ${isOpen ? 'navbar-open' : ''}`}>
+      <div className="navbar-container">
+        <h1 className="navbar-logo">RebootEarth</h1>
+        <nav className="nav-links">
+          <ul className="nav-list">
             <li>
-              <Link to="/" onClick={() => scrollToSection_3050('home')}>
-                <BiHome className="nav-icon_3050" /> Home
+              <Link to="/" onClick={() => navigate('/')}>
+                <BiHome className="nav-icon" /> Home
               </Link>
             </li>
             <li>
-              <Link to="/" onClick={() => scrollToSection_3050('about')}>
-                <BiInfoCircle className="nav-icon_3050" /> About
+              <Link to="/about" onClick={() => navigate('/about')}>
+                <BiInfoCircle className="nav-icon" /> About
               </Link>
             </li>
             <li>
-              <Link to="/" onClick={() => scrollToSection_3050('contact')}>
-                <BiPhone className="nav-icon_3050" /> Contact
+              <Link to="/contact" onClick={() => navigate('/contact')}>
+                <BiPhone className="nav-icon" /> Contact
               </Link>
             </li>
             {isLoggedIn && userRole === 'no' && (
               <li>
-                <Link to="/profile" onClick={handleProfileClick_3050}>
-                  <BiUser className="profile-icon_3050" /> Profile
+                <Link to="/profile" onClick={handleProfileClick}>
+                  <BiUser className="nav-icon" /> Profile
                 </Link>
               </li>
             )}
             {isLoggedIn && userRole === 'no' && (
               <li>
-                <Link to="/e-shop" onClick={handleE_ShopClick_3050}>
-                  <BiStore className="shop-icon_3050" /> e-shop
+                <Link to="/e-shop" onClick={handleE_ShopClick}>
+                  <BiStore className="nav-icon" /> e-shop
                 </Link>
               </li>
             )}
             {isLoggedIn && userRole === 'yes' && (
               <li>
-                <Link to="/admin" onClick={handleAdminClick_3050}>
-                  <BiUser className="profile-icon_3050" /> Admin
+                <Link to="/admin" onClick={handleAdminClick}>
+                  <BiUser className="nav-icon" /> Admin
                 </Link>
               </li>
             )}
           </ul>
         </nav>
         {isLoggedIn ? (
-          <button className="logout-btn_3050" onClick={handleLogoutClick_3050}>
-            Log Out
-          </button>
+          <button className="logout-btn" onClick={handleLogoutClick}>Log Out</button>
         ) : (
-          <button className="login-btn_3050" onClick={handleLoginClick_3050}>
-            Log In
-          </button>
+          <button className="login-btn" onClick={handleLoginClick}>Log In</button>
         )}
+        <BiMenu className="navbar-menu-icon" onClick={handleNavbarToggle} />
       </div>
-      <BiMenu className="navbar-menu-icon_3050" onClick={handleNavbar_3050} />
     </header>
   );
 };

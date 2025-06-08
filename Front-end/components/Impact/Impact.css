@@ -1,126 +1,127 @@
-/* General styles */
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1b1c1b; /* Dark background color */
+}
+
 .impact-section_2070 {
-  font-family: "Montserrat", sans-serif;
-  background-color: #1b1b1b;
-  color: #fff;
-  padding: 80px 100px;
-  text-align: center;
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden; /* Hide the bleeding effect overflow */
+}
+
+.impact-section_2070::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, #1b1c1b, #1b1c1b 70%);
+  z-index: -1; /* Keeps the pseudo-element behind the content */
+  pointer-events: none;
 }
 
 .container_2070 {
+  width: 90%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.impact-section_2070 h2 {
+.impact-heading {
+  text-align: center;
   font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 50px;
-  color: #4caf50;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  color: #ecf0f1; /* Light color for text on dark background */
+  margin-bottom: 40px;
+  font-weight: bold;
 }
 
 .impact-grid_2070 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center; /* Ensures center alignment */
 }
 
 .impact-item_2070 {
-  background-color: #2a2a2a;
-  padding: 10px; /* Remove extra padding */
-  border-radius: 12px;
+  background-color: #232f23; /* Darker background for each item */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-between; /* Ensures even spacing between content */
 }
 
 .impact-item_2070:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
-/* Updated image styles */
 .impact-image_2070 {
-  border-radius: 6% 6% 0% 0%;
   width: 100%;
-  height: 140px; /* Small but covers the impact box */
-  object-fit: cover;
+  height: 250px; /* Fixed height to maintain consistent sizing */
+  object-fit: cover; /* Ensures the image covers the box without distortion */
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
-/* Updated text styling */
-.impact-item_2070 h3 {
-  font-size: 26px;
-  font-weight: 600;
+.impact-item_2070:hover .impact-image_2070 {
+  transform: scale(1.05);
+}
+
+h3 {
+  color: #ecf0f1; /* Light color for headings */
+  font-size: 24px;
   margin: 15px 0 10px;
-  color: #4caf50;
-  letter-spacing: 1px;
+  font-weight: bold;
 }
 
-.impact-item_2070 p {
+p {
+  color: #bdc3c7; /* Lighter color for paragraph text */
   font-size: 16px;
-  color: #e2e2e2;
-  line-height: 1.6;
-  font-weight: 400;
-  margin-bottom: 15px;
 }
 
-.impact-item_2070 p span {
-  font-size: 28px;
-  font-weight: 700;
-  color: #4caf50;
-  margin-right: 5px;
+span {
+  font-size: 30px;
+  font-weight: bold;
+  color: #16a085;
 }
 
-/* Responsive styles */
+/* Media Queries */
 @media (max-width: 768px) {
-  .impact-section_2070 h2 {
-    font-size: 30px;
+  .impact-heading {
+    font-size: 28px;
   }
 
-  .impact-item_2070 h3 {
-    font-size: 24px;
+  .impact-grid_2070 {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 
-  .impact-item_2070 p {
-    font-size: 15px;
-  }
-
-  .impact-image_2070 {
-    height: 120px;
+  .impact-item_2070 {
+    padding: 15px;
   }
 }
 
 @media (max-width: 480px) {
-  .impact-section_2070 {
-    padding: 60px 20px;
-  }
-
-  .impact-section_2070 h2 {
-    font-size: 26px;
-  }
-
-  .impact-grid_2070 {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .impact-heading {
+    font-size: 24px;
   }
 
   .impact-item_2070 {
-    padding: 0;
+    padding: 10px;
   }
 
-  .impact-item_2070 h3 {
-    font-size: 22px;
+  h3 {
+    font-size: 20px;
   }
 
-  .impact-item_2070 p {
+  p {
     font-size: 14px;
-  }
-
-  .impact-image_2070 {
-    height: 100px;
   }
 }

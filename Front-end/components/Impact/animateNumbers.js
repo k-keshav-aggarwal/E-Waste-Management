@@ -1,16 +1,14 @@
-export const animateNumbers = (targetNumber, element, duration = 2000) => {
-  let startTimestamp = null;
+export const animateNumbers = (target, element) => {
+  let start = 0;
+  const end = target;
+  const duration = 2000; // Animation duration in milliseconds
+  const stepTime = Math.abs(Math.floor(duration / end));
 
-  const step = (timestamp) => {
-    if (!startTimestamp) startTimestamp = timestamp;
-    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-    const currentNumber = Math.floor(progress * targetNumber);
-    element.textContent = currentNumber;
-
-    if (progress < 1) {
-      window.requestAnimationFrame(step);
+  const timer = setInterval(() => {
+    start += 1;
+    element.textContent = start;
+    if (start === end) {
+      clearInterval(timer);
     }
-  };
-
-  window.requestAnimationFrame(step);
+  }, stepTime);
 };

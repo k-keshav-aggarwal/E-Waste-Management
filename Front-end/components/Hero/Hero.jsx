@@ -6,34 +6,38 @@ import { BASE_URL } from "../config";
 
 const Hero = () => {
   const [index, setIndex] = useState(0);
+  const [isConnected, setIsConnected] = useState(null);
 
   // Backend connection test
   useEffect(() => {
     axios.get(`${BASE_URL}/`)
       .then((res) => {
         console.log("backend connected to the frontend");
+        setIsConnected(true);
       })
       .catch((err) => {
         console.error("backend connection failed", err);
+        setIsConnected(false);
       });
   }, []);
 
-  // Image slider effect
+  // Image slider effect (runs once)
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % sliderData.length);
     }, 12000);
-    return () => clearInterval(interval);
-  }, [index]);
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []); // Empty dependency array ensures this effect runs only once
 
   // Animated bar effect
   useEffect(() => {
     const bar = document.querySelector(".animated-bar-1");
     if (bar) {
-      bar.style.animation = "none";
+      bar.classList.remove("animation-class");
       void bar.offsetWidth; // Trigger reflow
+      bar.classList.add("animation-class");
     }
-  }, [index]);
+  }, [index]); // Runs whenever `index` changes
 
   return (
     <div className="hero-section">
@@ -58,6 +62,15 @@ const Hero = () => {
         </ul>
       </div>
       <div className="animated-bar-1"></div>
+
+      {/* Optional: Show connection status */}
+      <div>
+        {isConnected === null
+          ? "Checking backend connection..."
+          : isConnected
+          ? "Backend connected!"
+          : "Failed to connect to the backend."}
+      </div>
     </div>
   );
 };

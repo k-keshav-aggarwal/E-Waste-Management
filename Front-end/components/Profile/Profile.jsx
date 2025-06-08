@@ -1,13 +1,13 @@
-// Frontend/components/Profile/Profile.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ItemsSection from "./ItemsSection"; // Import the ItemsSection component
 import { FaSpinner } from "react-icons/fa";
 import "./Profile.css";
-import { BASE_URL } from '../config';
+import { BASE_URL } from "../config";
 
 const Profile = () => {
   const [loadingProfile, setLoadingProfile] = useState(true);
+  const [loadingSubmit, setLoadingSubmit] = useState(false); // State for handling submit button loading
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -68,12 +68,16 @@ const Profile = () => {
   };
 
   const handleSubmit = async () => {
+    if (loadingSubmit) return; // Prevent multiple submissions
+
+    setLoadingSubmit(true); // Set loading state to true
     try {
       const userEmail = localStorage.getItem("email"); // Get email from local storage
       const userRole = localStorage.getItem("role"); // Get role from local storage
 
       if (!userEmail || !userRole) {
         console.error("Email or role not found in local storage");
+        setLoadingSubmit(false);
         return;
       }
 
@@ -96,6 +100,8 @@ const Profile = () => {
     } catch (err) {
       console.error("Error updating profile:", err);
       alert("Error updating profile. Please try again.");
+    } finally {
+      setLoadingSubmit(false); // Reset loading state after submitting
     }
   };
 
@@ -192,8 +198,12 @@ const Profile = () => {
               </div>
             )}
             {/* Submit Button */}
-            <button onClick={handleSubmit} className="submit_button_2090">
-              Save Changes
+            <button
+              onClick={handleSubmit}
+              className="submit_button_2090"
+              disabled={loadingSubmit} // Disable the button while submitting
+            >
+              {loadingSubmit ? <FaSpinner className="spinner" /> : "Save Changes"}
             </button>
           </div>
         </div>

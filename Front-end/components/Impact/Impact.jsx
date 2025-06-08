@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import "./Impact.css";
+import "./Impact.css"; // Import the styles
 import { animateNumbers } from "./animateNumbers"; // Import the animation utility
 
 const Impact = () => {
@@ -20,7 +20,7 @@ const Impact = () => {
   return (
     <section className="impact-section_2070">
       <div className="container_2070">
-        <h2>OUR IMPACT</h2>
+        <h2 className="impact-heading">OUR IMPACT</h2>
         <div className="impact-grid_2070">
           <div className="impact-item_2070">
             <img

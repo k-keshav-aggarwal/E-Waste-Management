@@ -1,172 +1,156 @@
-/* Feedback section */
-.feedback-section_2050 {
-  font-family: "Montserrat", sans-serif;
-  background-color: #1b1b1b;
-  color: #fff;
+/* Layout */
+.contact-wrapper {
   display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  background: #1b1c1b;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Left Pane */
+.left-pane {
+  flex: 1;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 60px 40px; /* Slightly increased padding for better spacing */
-  width: 100%;
-  text-align: center;
+  background: #1b1c1b;
 }
 
-.container_2050 {
-  min-width: 1000px; /* Minimum width for the container */
-  max-width: 1200px; /* Maximum width for the container */
-  width: 100%; /* Ensure it takes full width within the constraints */
-  margin: 0 auto; /* Center the container */
+.left-pane h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #00ffc3;
 }
 
-.feedback-section_2050 h2 {
-  font-size: 28px; /* Larger font size for the heading */
-  font-weight: 700; /* Bold font weight */
-  margin-bottom: 15px; /* Adjusted margin */
-  color: #4caf50; /* Green color for the heading */
-  text-transform: uppercase; /* Uppercase for emphasis */
-  letter-spacing: 1px; /* Added letter spacing */
-}
-
-.feedback-section_2050 .subtitle_2050 {
-  font-size: 16px;
+.left-pane p {
+  font-size: 1.1rem;
+  color: #ccc;
+  max-width: 400px;
   margin-bottom: 30px;
-  color: #a1a1a1; /* Lighter text color for better readability */
-  font-weight: 400; /* Normal font weight */
-  line-height: 1.6; /* Increased line height for better readability */
 }
 
-/* Form container */
-.feedback-form_2050 {
-  width: 100%; /* Take full width on smaller screens */
-  max-width: 600px; /* Default max-width for desktop */
-  margin: 0 auto; /* Center the form */
+.left-pane img {
+  max-width: 80%;
+  height: auto;
+  margin-top: 20px;
+  filter: drop-shadow(0 0 8px #00ffc3);
+}
+
+/* Right Pane */
+.right-pane {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1b1c1b;
+  padding: 40px;
+}
+
+/* Glass form box */
+.form-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(0, 255, 195, 0.2);
+}
+
+.form-glass h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #bbb;
+  margin-bottom: 30px;
+  font-size: 14px;
 }
 
 /* Form styles */
-.feedback-form_2050 .form-group_2050 {
+.contact-form {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
-  gap: 20px; /* Added gap between input fields */
+  gap: 20px;
 }
 
-/* Input fields without boxes, with bottom lines */
-.feedback-form_2050 input,
-.feedback-form_2050 textarea {
-  background: none;
-  border: none;
-  border-bottom: 1px solid #444;
-  color: #fff;
-  padding: 10px 0; /* Increased padding for better spacing */
-  margin-bottom: 20px;
+.form-group {
+  position: relative;
+}
+
+input, textarea {
   width: 100%;
-  font-size: 16px;
-  transition: border-color 0.3s ease;
-  line-height: 1.5;
-  font-family: "Montserrat", sans-serif;
-}
-
-/* Center the placeholder on the line */
-.feedback-form_2050 input::placeholder,
-.feedback-form_2050 textarea::placeholder {
-  color: #777;
-  text-align: center;
-  padding-top: 11px;
-  transform: translateY(6px);
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
-}
-
-.feedback-form_2050 input:focus,
-.feedback-form_2050 textarea:focus {
-  outline: none;
-  border-bottom: 1px solid #4caf50; /* Green color for focus state */
-}
-
-/* Disable resize for textarea */
-.feedback-form_2050 textarea {
-  resize: none;
-  line-height: 1.5;
-}
-
-/* Submit button */
-.feedback-form_2050 button {
-  background-color: #4caf50; /* Green background */
+  padding: 14px 12px;
+  font-size: 14px;
+  background: transparent;
+  border: 1px solid #555;
+  border-radius: 8px;
   color: #fff;
+  outline: none;
+  transition: 0.3s;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+label {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  color: #aaa;
+  font-size: 14px;
+  background: #1b1c1b;
+  padding: 0 4px;
+  transition: 0.2s;
+  pointer-events: none;
+}
+
+input:focus + label,
+input:not(:placeholder-shown) + label,
+textarea:focus + label,
+textarea:not(:placeholder-shown) + label {
+  top: -10px;
+  font-size: 12px;
+  color: #00ffc3;
+}
+
+.char-counter {
+  text-align: right;
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+.success-msg {
+  background: #113f3f;
+  border: 1px solid #00ffc3;
+  color: #b4ffe8;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.submit-btn {
+  padding: 14px;
+  background: #00ffc3;
+  color: #000;
+  font-weight: bold;
   border: none;
-  padding: 15px 30px;
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: 600; /* Bold font weight */
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+  transition: 0.3s;
+  box-shadow: 0 0 12px #00ffc3;
 }
 
-.feedback-form_2050 button:hover {
-  background-color: #45a049; /* Darker green on hover */
-  transform: scale(1.05); /* Slight scale effect on hover */
-}
-
-/* Responsive styles for side-by-side inputs */
-@media (min-width: 480px) {
-  .feedback-form_2050 .form-group_2050:first-child {
-    flex-direction: row;
-    gap: 20px;
-  }
-
-  .feedback-form_2050 input[type="text"],
-  .feedback-form_2050 input[type="email"] {
-    flex: 1;
-  }
-}
-
-/* Increase form width for tablets and larger screens */
-@media (min-width: 768px) {
-  .feedback-form_2050 {
-    max-width: 600px; /* Larger width for tablets */
-  }
-
-  .container_2050 {
-    min-width: 800px; /* Adjusted min-width for tablets */
-    max-width: 1000px; /* Adjusted max-width for tablets */
-  }
-}
-
-/* Increase form width for desktop screens */
-@media (min-width: 1024px) {
-  .feedback-form_2050 {
-    max-width: 800px; /* Even larger width for desktops */
-  }
-
-  .container_2050 {
-    min-width: 1000px; /* Original min-width for desktops */
-    max-width: 1200px; /* Original max-width for desktops */
-  }
-}
-
-@media (max-width: 480px) {
-  .feedback-section_2050 {
-    padding: 20px 15px; /* Reduced padding for smaller screens */
-  }
-
-  .container_2050 {
-    min-width: 90%; /* Reduced width for mobile */
-    max-width: 90%; /* Reduced width for mobile */
-  }
-
-  .feedback-form_2050 {
-    max-width: 100%; /* Full width for mobile */
-  }
-
-  .feedback-form_2050 input,
-  .feedback-form_2050 textarea {
-    font-size: 14px;
-    padding: 8px 0; /* Adjusted padding for mobile */
-  }
-
-  .feedback-form_2050 button {
-    padding: 12px 24px; /* Adjusted padding for mobile */
-    font-size: 14px; /* Adjusted font size for mobile */
-  }
+.submit-btn:hover {
+  background: #00d9a6;
+  box-shadow: 0 0 20px #00ffc3, 0 0 40px #00ffc3;
 }
